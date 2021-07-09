@@ -1,0 +1,11 @@
+remote: origin
+target-branch: main
+chart-dirs:
+  - charts
+chart-repos:
+  - bitnami=https://charts.bitnami.com/bitnami
+  - bedag=https://bedag.github.io/helm-charts
+  - gradiant=https://gradiant.github.io/charts
+  - timescale=https://charts.timescale.com
+  - slamdev=https://slamdev.github.io/helm-charts
+helm-extra-args: --timeout 600s

@@ -1,0 +1,101 @@
+replicaCount: 1
+
+image:
+  repository: sketchbench/zeppelin
+  pullPolicy: IfNotPresent
+  tag: latest
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+podSecurityContext: {}
+securityContext: {}
+
+service:
+  type: ClusterIP
+  internalPort: 8080
+  externalPort: 8080
+  rpcPort: 12320
+  className: ""
+  tls: []
+
+ingress:
+  baseUrl: /zeppelin
+  enabled: false
+  annotations: {}
+  tls: []
+  hosts:
+    - host: zeppelin.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+interpreterConnectTimeout: 120000
+runMode: auto
+logLevel: DEBUG
+interpreters: []
+sparkInterpreter:
+  env:
+    sparkHome: /opt/spark
+    pySparkPython: python
+    pySparkDriverPython: python
+  spark:
+    master: "local[*]"
+    submit:
+      deployMode: ""
+    app:
+      name: ""
+    driver:
+      cores: "1"
+      memory: 1g
+      port: 4041
+      blockManagerPort: 4042
+    executor:
+      cores: "1"
+      memory: 1g
+      instances: "2"
+    files: ""
+    jars: ""
+    jar:
+      packages: ""
+    webui:
+      port: 4040
+      yarn:
+        useProxy: false
+  zeppelin:
+    spark:
+      useHiveContext: true
+      printREPLOutput: true
+      maxResult: "1000"
+      enableSupportedVersionCheck: true
+      uiWebUrl: ""
+      ui:
+        hidden: false
+      scala:
+        color: true
+      deprecatedMsg:
+        show: true
+      concurrentSQL:
+        enable: true
+        max: "10"
+      sql:
+        stacktrace: true
+        interpolation: false
+    pyspark:
+      useIPython: true
+    R:
+      knitr: true
+      cmd: R
+      image:
+        width: 100%
+      render:
+        options: "out.format \u003d \u0027html\u0027, comment \u003d NA, echo \u003d FALSE, results \u003d \u0027asis\u0027, message \u003d F, warning \u003d F, fig.retina \u003d 2"
+    kotlin:
+      shortenTypes: true

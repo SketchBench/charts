@@ -9,7 +9,6 @@ global:
 dataIngestion:
   espbench:
     enabled: false
-
     jar: DataSender-assembly-0.1.0-SNAPSHOT.jar
     javaOpts: -Xms1g
     keySerializer: org.apache.kafka.common.serialization.StringSerializer
@@ -26,7 +25,6 @@ dataIngestion:
     duration: 5
     durationTimeUnit: MINUTES
     verbose: true
-
     replicaCount: 1
     image:
       repository: sketchbench/sketchbench-data-ingestion-espbench
@@ -45,11 +43,9 @@ dataIngestion:
     affinity: {}
   tester:
     enabled: false
-
     topic: sketchbench-test
-    numberMessages: 0 # unlimited
-    maxWaitingTime: 0.5 # seconds
-
+    numberMessages: 0  # unlimited
+    maxWaitingTime: 0.5  # seconds
     replicaCount: 1
     image:
       repository: sketchbench/sketchbench-data-ingestion-tester
@@ -86,6 +82,7 @@ kafdrop:
       - -XX:-TieredCompilation
       - -XX:+UseStringDeduplication
       - -noverify
+
 spark:
   enabled: false
   image:
@@ -95,6 +92,7 @@ spark:
   worker:
     replicaCount: 3
     coreLimit: 3
+
 tobs:
   enabled: false
   kube-prometheus-stack:

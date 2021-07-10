@@ -1,7 +1,7 @@
 replicaCount: 1
 
 image:
-  repository: sketchbench/zeppelin
+  repository: sketchbench/sketchbench-zeppelin
   pullPolicy: IfNotPresent
   tag: latest
 

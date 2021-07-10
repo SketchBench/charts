@@ -4,7 +4,7 @@ description: A benchmark suite for stochastic streaming algorithms
 type: application
 version: 0.1.0
 appVersion: "1.0.0"
-home: https://github.com/SketchBench
+home: https://spark.apache.org/
 # icon:
 maintainers:
   - name: FraBle
@@ -17,7 +17,7 @@ maintainers:
     email: mkp5@illinois.edu
     url: https://github.com/mukrpe
 sources:
-  - https://github.com/SketchBench
+  - https://github.com/SketchBench/sketchbench-k8s
 annotations:
   artifacthub.io/signKey: |
     fingerprint: F6F77B76587337D518F42D9CE720A2903AF94931

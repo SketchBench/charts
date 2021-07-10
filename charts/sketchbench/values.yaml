@@ -33,7 +33,7 @@ dataIngestion:
     image:
       repository: sketchbench/sketchbench-data-ingestion-espbench
       pullPolicy: IfNotPresent
-      tag: "0.1.0"
+      tag: "0.1.1"
     initImage:
       repository: sketchbench/sketchbench-data-ingestion-espbench-init
       pullPolicy: IfNotPresent

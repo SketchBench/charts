@@ -2,7 +2,7 @@ apiVersion: v2
 name: sketchbench
 description: A benchmark suite for stochastic streaming algorithms
 type: application
-version: 0.1.0
+version: 0.1.1
 appVersion: "1.0.0"
 home: https://spark.apache.org/
 # icon:

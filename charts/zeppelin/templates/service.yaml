@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "zeppelin.fullname" . }}
+  labels:
+    {{- include "zeppelin.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - name: http
+      port: {{ .Values.service.externalPort }}
+      protocol: TCP
+      targetPort: {{ .Values.service.internalPort }}
+    - name: rpc
+      port: {{ .Values.service.rpcPort }}
+      protocol: TCP
+      targetPort: {{ .Values.service.rpcPort }}
+    - name: spark-ui
+      protocol: TCP
+      port: {{ .Values.sparkInterpreter.spark.webui.port }}
+      targetPort: {{ .Values.sparkInterpreter.spark.webui.port }}
+    - name: driver
+      protocol: TCP
+      port: {{ .Values.sparkInterpreter.spark.driver.port }}
+      targetPort: {{ .Values.sparkInterpreter.spark.driver.port }}
+    - name: block-manager
+      protocol: TCP
+      port: {{ .Values.sparkInterpreter.spark.driver.blockManagerPort }}
+      targetPort: {{ .Values.sparkInterpreter.spark.driver.blockManagerPort }}
+  selector:
+    {{- include "zeppelin.selectorLabels" . | nindent 4 }}

@@ -1,0 +1,3 @@
+dataIngestion:
+  tester:
+    enabled: true

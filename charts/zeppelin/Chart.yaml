@@ -1,0 +1,28 @@
+apiVersion: v2
+name: zeppelin
+description: Apache Zeppelin Helm chart for custom integration with Apache Spark
+type: application
+version: 0.1.0
+appVersion: "0.9.0"
+home: http://zeppelin.apache.org/
+maintainers:
+  - name: FraBle
+    email: frankb2@illinois.edu
+    url: https://github.com/FraBle
+  - name: makamhareesh
+    email: hmakam2@illinois.edu
+    url: https://github.com/makamhareesh
+  - name: mukrpe
+    email: mkp5@illinois.edu
+    url: https://github.com/mukrpe
+sources:
+  - https://github.com/SketchBench/sketchbench-k8s
+annotations:
+  artifacthub.io/signKey: |
+    fingerprint: F6F77B76587337D518F42D9CE720A2903AF94931
+    url: https://keybase.io/frable90/pgp_keys.asc
+keywords:
+  - apache
+  - zeppelin
+  - notebook
+  - spark

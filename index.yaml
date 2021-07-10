@@ -7,6 +7,65 @@ entries:
         url: https://keybase.io/frable90/pgp_keys.asc
     apiVersion: v2
     appVersion: 1.0.0
+    created: "2021-07-10T09:29:25.923185404Z"
+    dependencies:
+    - condition: bullet.enabled
+      name: bullet
+      repository: https://sketchbench.github.io/bullet-k8s
+      version: 0.1.1
+    - import-values:
+      - child: service
+        parent: dataIngestion.kafka
+      - child: zookeeper.service
+        parent: dataIngestion.zookeeper
+      name: kafka
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.0.2
+    - name: kafdrop
+      repository: https://bedag.github.io/helm-charts
+      version: 0.2.3
+    - condition: spark.enabled
+      name: spark
+      repository: https://charts.bitnami.com/bitnami
+      version: 5.6.1
+    - condition: tobs.enabled
+      name: tobs
+      repository: https://charts.timescale.com
+      version: 0.5.0
+    description: A benchmark suite for stochastic streaming algorithms
+    digest: 91eaec3c4f23c5afb69e0cf5ddb560ee6d0b9c5e199e820c43bd9c764fbd8b2a
+    home: https://spark.apache.org/
+    keywords:
+    - apache
+    - bullet
+    - spark
+    - storm
+    - kafka
+    - sketch
+    - benchmark
+    maintainers:
+    - email: frankb2@illinois.edu
+      name: FraBle
+      url: https://github.com/FraBle
+    - email: hmakam2@illinois.edu
+      name: makamhareesh
+      url: https://github.com/makamhareesh
+    - email: mkp5@illinois.edu
+      name: mukrpe
+      url: https://github.com/mukrpe
+    name: sketchbench
+    sources:
+    - https://github.com/SketchBench/sketchbench-k8s
+    type: application
+    urls:
+    - https://github.com/SketchBench/sketchbench-k8s/releases/download/sketchbench-0.1.1/sketchbench-0.1.1.tgz
+    version: 0.1.1
+  - annotations:
+      artifacthub.io/signKey: |
+        fingerprint: F6F77B76587337D518F42D9CE720A2903AF94931
+        url: https://keybase.io/frable90/pgp_keys.asc
+    apiVersion: v2
+    appVersion: 1.0.0
     created: "2021-07-10T06:17:56.458408731Z"
     dependencies:
     - import-values:
@@ -89,4 +148,4 @@ entries:
     urls:
     - https://github.com/SketchBench/sketchbench-k8s/releases/download/zeppelin-0.1.0/zeppelin-0.1.0.tgz
     version: 0.1.0
-generated: "2021-07-10T06:17:56.641419217Z"
+generated: "2021-07-10T09:29:25.923201604Z"

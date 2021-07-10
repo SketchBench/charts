@@ -6,6 +6,10 @@ global:
   commonLabels: {}
   commonAnnotations: {}
 
+bullet:
+  enabled:
+    false
+
 dataIngestion:
   espbench:
     enabled: false
@@ -62,6 +66,7 @@ dataIngestion:
 kafka:
   zookeeper:
     nameOverride: kafka-zookeeper
+
 kafdrop:
   nameOverride: kafka-monit
   timezone: America/Los_Angeles

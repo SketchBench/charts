@@ -1,4 +1,7 @@
 dependencies:
+- name: bullet
+  repository: https://sketchbench.github.io/bullet-k8s
+  version: 0.1.1
 - name: kafka
   repository: https://charts.bitnami.com/bitnami
   version: 13.0.2
@@ -11,5 +14,5 @@ dependencies:
 - name: tobs
   repository: https://charts.timescale.com
   version: 0.5.0
-digest: sha256:1a581ced856c98676333bb51fc216f8eec5cec374465a6f12bacf62c3d79ab8e
-generated: "2021-07-08T23:49:25.6898922-07:00"
+digest: sha256:e23fdfacd0d9fa47f5e06b3066db4c424e8ae3a175f990d81f1a2c4c49f1d3d4
+generated: "2021-07-10T00:32:32.4195274-07:00"

@@ -55,10 +55,10 @@ entries:
       url: https://github.com/mukrpe
     name: sketchbench
     sources:
-    - https://github.com/SketchBench/sketchbench-k8s
+    - https://github.com/SketchBench/charts
     type: application
     urls:
-    - https://github.com/SketchBench/sketchbench-k8s/releases/download/sketchbench-0.1.1/sketchbench-0.1.1.tgz
+    - https://github.com/SketchBench/charts/releases/download/sketchbench-0.1.1/sketchbench-0.1.1.tgz
     version: 0.1.1
   - annotations:
       artifacthub.io/signKey: |
@@ -110,10 +110,10 @@ entries:
       url: https://github.com/mukrpe
     name: sketchbench
     sources:
-    - https://github.com/SketchBench/sketchbench-k8s
+    - https://github.com/SketchBench/charts
     type: application
     urls:
-    - https://github.com/SketchBench/sketchbench-k8s/releases/download/sketchbench-0.1.0/sketchbench-0.1.0.tgz
+    - https://github.com/SketchBench/charts/releases/download/sketchbench-0.1.0/sketchbench-0.1.0.tgz
     version: 0.1.0
   zeppelin:
   - annotations:
@@ -143,9 +143,9 @@ entries:
       url: https://github.com/mukrpe
     name: zeppelin
     sources:
-    - https://github.com/SketchBench/sketchbench-k8s
+    - https://github.com/SketchBench/charts
     type: application
     urls:
-    - https://github.com/SketchBench/sketchbench-k8s/releases/download/zeppelin-0.1.0/zeppelin-0.1.0.tgz
+    - https://github.com/SketchBench/charts/releases/download/zeppelin-0.1.0/zeppelin-0.1.0.tgz
     version: 0.1.0
 generated: "2021-07-10T09:29:25.923201604Z"

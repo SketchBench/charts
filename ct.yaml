@@ -9,6 +9,7 @@ chart-repos:
   - timescale=https://charts.timescale.com
   - slamdev=https://slamdev.github.io/helm-charts
   - bullet=https://sketchbench.github.io/bullet-k8s
+  - sketchbench=https://sketchbench.github.io/charts
 helm-extra-args: --timeout 600s
 # Excluded until issue is resolved: https://github.com/helm/chart-testing/issues/346
 excluded-charts: sketchbench

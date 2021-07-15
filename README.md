@@ -59,6 +59,10 @@ Two services are required to use the Bullet UI locally:
 
     kubectl port-forward service/my-sketchbench-kafka-monit 9001:9000
 
+#### Zeppelin
+
+    kubectl port-forward service/my-sketchbench-zeppelin 8080:8080
+
 ### Run `chart-testing` locally
 
 #### Windows

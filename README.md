@@ -4,17 +4,29 @@ Collection of Helm Charts for SketchBench
 
 ## Examples
 
-### Bring up SketchBench with Bullet and sketchbench-data-ingestion-tester
-
-> Data Generator: [`sketchbench-data-ingestion-tester`](https://github.com/SketchBench/sketchbench-data-ingestion-tester)
-
-    helm install -f ./values-data-ingestion-tester-bullet.yaml my-sketchbench .\charts\sketchbench\
-
-### Bring up SketchBench with Bullet and sketchbench-data-ingestion-espbench
+### SketchBench with Bullet and sketchbench-data-ingestion-espbench
 
 > Data Sender: [`sketchbench-data-ingestion-espbench`](https://github.com/SketchBench/sketchbench-data-ingestion-espbench)
 
-    helm install -f .\values-data-ingestion-espbench-bullet.yaml my-sketchbench .\charts\sketchbench\
+    helm install -f ./values-espbench-bullet.yaml my-sketchbench ./charts/sketchbench/
+
+### SketchBench only with sketchbench-data-ingestion-espbench (no Bullet)
+
+> Data Sender: [`sketchbench-data-ingestion-espbench`](https://github.com/SketchBench/sketchbench-data-ingestion-espbench)
+
+    helm install -f ./values-espbench.yaml my-sketchbench ./charts/sketchbench/
+
+### SketchBench with Bullet and sketchbench-data-ingestion-tester
+
+> Data Generator: [`sketchbench-data-ingestion-tester`](https://github.com/SketchBench/sketchbench-data-ingestion-tester)
+
+    helm install -f ./values-tester-bullet.yaml my-sketchbench ./charts/sketchbench/
+
+### SketchBench only with sketchbench-data-ingestion-tester (no Bullet)
+
+> Data Generator: [`sketchbench-data-ingestion-tester`](https://github.com/SketchBench/sketchbench-data-ingestion-tester)
+
+    helm install -f ./values-tester.yaml my-sketchbench ./charts/sketchbench/
 
 ### Using Bullet locally
 
@@ -64,6 +76,16 @@ Two services are required to use the Bullet UI locally:
     kubectl port-forward service/my-sketchbench-zeppelin 8080:8080
 
 ### Run `chart-testing` locally
+
+#### Unix
+
+`ct lint`:
+
+    docker run --rm --volume .:/src --workdir /src quay.io/helmpack/chart-testing:latest ct lint --config ct.yaml
+
+Interactive:
+
+    docker run --interactive --tty --rm --volume .:/src --workdir /src quay.io/helmpack/chart-testing:latest bash
 
 #### Windows
 

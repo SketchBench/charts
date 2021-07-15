@@ -31,9 +31,9 @@ spark:
     coreLimit: 3
 
 bullet:
+  enabled: true
   spark:
     enabled: false
-  enabled: true
   sparkBackend:
     image:
       repository: sketchbench/bullet-spark-3.0

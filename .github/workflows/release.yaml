@@ -30,6 +30,7 @@ jobs:
           helm repo add bedag https://bedag.github.io/helm-charts
           helm repo add timescale https://charts.timescale.com
           helm repo add bullet https://sketchbench.github.io/bullet-k8s
+          helm repo add sketchbench https://sketchbench.github.io/charts
 
       - name: Prepare GPG key
         run: |

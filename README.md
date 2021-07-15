@@ -4,31 +4,33 @@ Collection of Helm Charts for SketchBench
 
 ## Examples
 
-### SketchBench with Bullet and sketchbench-data-ingestion-espbench
+### `sketchbench-data-ingestion-espbench`
 
 > Data Sender: [`sketchbench-data-ingestion-espbench`](https://github.com/SketchBench/sketchbench-data-ingestion-espbench)
+
+#### With Bullet & Zeppelin
 
     helm install -f ./values-espbench-bullet.yaml my-sketchbench ./charts/sketchbench/
 
-### SketchBench only with sketchbench-data-ingestion-espbench (no Bullet)
-
-> Data Sender: [`sketchbench-data-ingestion-espbench`](https://github.com/SketchBench/sketchbench-data-ingestion-espbench)
+#### With Zeppelin (no Bullet)
 
     helm install -f ./values-espbench.yaml my-sketchbench ./charts/sketchbench/
 
-### SketchBench with Bullet and sketchbench-data-ingestion-tester
+### `sketchbench-data-ingestion-tester`
 
 > Data Generator: [`sketchbench-data-ingestion-tester`](https://github.com/SketchBench/sketchbench-data-ingestion-tester)
+
+#### With Bullet & Zeppelin
 
     helm install -f ./values-tester-bullet.yaml my-sketchbench ./charts/sketchbench/
 
-### SketchBench only with sketchbench-data-ingestion-tester (no Bullet)
-
-> Data Generator: [`sketchbench-data-ingestion-tester`](https://github.com/SketchBench/sketchbench-data-ingestion-tester)
+#### With Zeppelin (no Bullet)
 
     helm install -f ./values-tester.yaml my-sketchbench ./charts/sketchbench/
 
-### Using Bullet locally
+---
+
+### Accessing Bullet locally
 
 > The following commands assume a Helm Release called `my-sketchbench`.
 

@@ -2,7 +2,7 @@ apiVersion: v2
 name: zeppelin
 description: Apache Zeppelin Helm chart for custom integration with Apache Spark
 type: application
-version: 0.1.0
+version: 0.1.1
 appVersion: "0.9.0"
 home: http://zeppelin.apache.org/
 maintainers:
@@ -16,7 +16,7 @@ maintainers:
     email: mkp5@illinois.edu
     url: https://github.com/mukrpe
 sources:
-  - https://github.com/SketchBench/sketchbench-k8s
+  - https://github.com/SketchBench/charts
 annotations:
   artifacthub.io/signKey: |
     fingerprint: F6F77B76587337D518F42D9CE720A2903AF94931

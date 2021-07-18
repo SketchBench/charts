@@ -7,8 +7,7 @@ global:
   commonAnnotations: {}
 
 bullet:
-  enabled:
-    false
+  enabled: false
 
 dataIngestion:
   espbench:
@@ -48,8 +47,8 @@ dataIngestion:
   tester:
     enabled: false
     topic: sketchbench-test
-    numberMessages: 0  # unlimited
-    maxWaitingTime: 0.5  # seconds
+    numberMessages: 0 # unlimited
+    maxWaitingTime: 0.5 # seconds
     replicaCount: 1
     image:
       repository: sketchbench/sketchbench-data-ingestion-tester
@@ -68,6 +67,7 @@ kafka:
     nameOverride: kafka-zookeeper
 
 kafdrop:
+  enabled: false
   nameOverride: kafka-monit
   timezone: America/Los_Angeles
   config:
@@ -102,9 +102,9 @@ tobs:
   enabled: false
   kube-prometheus-stack:
     alertmanager:
-      enabled: false  # not needed
+      enabled: false # not needed
     prometheus-node-exporter:
-      hostRootFsMount: false  # for Windows (Docker Desktop)
+      hostRootFsMount: false # for Windows (Docker Desktop)
   timescaledb-single:
     # Alternative: https://github.com/timescale/tobs/tree/master/chart#creating-secrets
     unsafe: true

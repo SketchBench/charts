@@ -67,11 +67,11 @@ Two services are required to use the Bullet UI locally:
 
 #### HDFS Web UI
 
-    kubectl port-forward service/my-sketchbench-hdfs 5070:50070
+    kubectl port-forward service/my-sketchbench-hdfs-namenodes 9870:9870
 
 #### Ingestion Kafka Monitoring UI (Kafdrop)
 
-    kubectl port-forward service/my-sketchbench-kafka-monit 9001:9000
+    kubectl port-forward service/my-sketchbench-kafka-monit 9000:9000
 
 #### Zeppelin
 

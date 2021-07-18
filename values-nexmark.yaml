@@ -1,0 +1,34 @@
+dataIngestion:
+  nexmark:
+    enabled: true
+    image:
+      repository: sketchbench/sketchbench-data-ingestion-nexmark
+      pullPolicy: IfNotPresent
+      tag: "0.1.0"
+zeppelin:
+  enabled: true
+  runMode: local
+  interpreters:
+    - file
+    - spark
+    - md
+    - python
+    - livy
+    - sparql
+  sparkInterpreter:
+    spark:
+      master: "spark://my-sketchbench-spark-master-svc:7077"
+      submit:
+        deployMode: "client"
+      app:
+        name: "zeppelin"
+
+spark:
+  enabled: true
+  image:
+    repository: sketchbench/bullet-spark-3.0
+    tag: "1.0.4"
+    pullPolicy: IfNotPresent
+  worker:
+    replicaCount: 3
+    coreLimit: 3

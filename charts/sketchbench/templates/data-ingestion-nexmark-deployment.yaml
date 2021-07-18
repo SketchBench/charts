@@ -47,11 +47,11 @@ spec:
             - {{ .Values.dataIngestion.nexmark.jar }}
             - {{ .Values.dataIngestion.nexmark.runClass }}
             - -kafkaBootServers
-            - {{ .Values.dataIngestion.nexmark.kafkaBootServers }}
+            - {{ printf "%s-kafka:%g" .Release.Name .Values.dataIngestion.kafka.port | quote }}
             - -topic
             - {{ .Values.dataIngestion.nexmark.kafkaTopic }}
             - -sleep
-            - {{ .Values.dataIngestion.nexmark.threadSleep }}
+            - {{ .Values.dataIngestion.nexmark.threadSleep | quote }}
           resources:
             {{- toYaml .Values.dataIngestion.nexmark.resources | nindent 12 }}
       {{- with .Values.dataIngestion.nexmark.nodeSelector }}

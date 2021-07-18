@@ -52,7 +52,7 @@ bullet:
               name: com.yahoo.bullet.dsl.connector.KafkaConnector
             kafka:
               topics:
-                - SketchBench-1-1
+                - SketchBench-nexmark
               bootstrap:
                 servers:
                   - kafka:9092
@@ -72,27 +72,36 @@ bullet:
           "fields": [
             {
               "name": "iij_timestamp",
+              "reference": "event.iij_timestamp",
               "type": "LONG"
             },
             {
               "name": "auction_id",
+              "reference": "event.auction_id",
               "type": "INTEGER"
             },
             {
               "name": "partition_id",
+              "reference": "event.partition_id",
               "type": "INTEGER"
             },
             {
               "name": "time",
+              "reference": "event.time",
               "type": "LONG"
             },
             {
               "name": "person",
+              "reference": "event.person",
               "type": "INTEGER"
             },
             {
               "name": "bid",
+              "reference": "event.bid",
               "type": "INTEGER"
             }
           ]
         }
+
+kafdrop:
+  enabled: true

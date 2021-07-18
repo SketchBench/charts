@@ -1,10 +1,7 @@
 dataIngestion:
   nexmark:
     enabled: true
-    image:
-      repository: sketchbench/sketchbench-data-ingestion-nexmark
-      pullPolicy: IfNotPresent
-      tag: "0.1.0"
+
 zeppelin:
   enabled: true
   runMode: local
@@ -32,3 +29,6 @@ spark:
   worker:
     replicaCount: 3
     coreLimit: 3
+
+kafdrop:
+  enabled: true

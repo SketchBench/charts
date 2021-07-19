@@ -140,6 +140,12 @@ data:
               "type":"number",
               "description":"The number of executors for static allocation."
             },
+            "spark.cores.max":{
+              "name":"spark.cores.max",
+              "value":{{ .Values.sparkInterpreter.spark.cores.max | quote }},
+              "type":"number",
+              "description":"The maximum amount of CPU cores to request for the application from across the cluster."
+            },
             "spark.files":{
               "name":"spark.files",
               "value":{{ .Values.sparkInterpreter.spark.files | quote }},

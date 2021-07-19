@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: sketchbench/sketchbench-zeppelin
   pullPolicy: IfNotPresent
-  tag: latest
+  tag: "0.9.0"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -61,6 +61,8 @@ sparkInterpreter:
       cores: "1"
       memory: 1g
       instances: "2"
+    cores:
+      max: "2"
     files: ""
     jars: ""
     jar:

@@ -2,7 +2,7 @@ apiVersion: v2
 name: zeppelin
 description: Apache Zeppelin Helm chart for custom integration with Apache Spark
 type: application
-version: 0.1.1
+version: 0.1.2
 appVersion: "0.9.0"
 home: http://zeppelin.apache.org/
 maintainers:

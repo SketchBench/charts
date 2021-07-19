@@ -10,8 +10,6 @@ zeppelin:
     - spark
     - md
     - python
-    - livy
-    - sparql
   sparkInterpreter:
     spark:
       master: "spark://my-sketchbench-spark-master-svc:7077"
@@ -31,6 +29,3 @@ spark:
   worker:
     replicaCount: 3
     coreLimit: 3
-
-kafdrop:
-  enabled: true

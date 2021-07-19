@@ -10,8 +10,6 @@ zeppelin:
     - spark
     - md
     - python
-    - livy
-    - sparql
   sparkInterpreter:
     spark:
       master: "spark://my-sketchbench-spark-master-svc:7077"

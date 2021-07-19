@@ -1,0 +1,39 @@
+{{- if and .Values.metrics.enabled .Values.metrics.podMonitor.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: {{ include "zeppelin.fullname" . }}-zeppelin
+  {{- if .Values.metrics.podMonitor.namespace }}
+  namespace: {{ .Values.metrics.podMonitor.namespace }}
+  {{- else }}
+  namespace: {{ .Release.Namespace }}
+  {{- end }}
+  labels:
+    {{- include "zeppelin.labels" . | nindent 4 }}
+    app.kubernetes.io/component: metrics
+spec:
+  podMetricsEndpoints:
+    - port: {{ .Values.sparkInterpreter.spark.webui.port | quote }}
+      path: /metrics/executors/prometheus/
+      {{- if .Values.metrics.podMonitor.interval }}
+      interval: {{ .Values.metrics.podMonitor.interval }}
+      {{- end }}
+      {{- if .Values.metrics.podMonitor.scrapeTimeout }}
+      scrapeTimeout: {{ .Values.metrics.podMonitor.scrapeTimeout }}
+      {{- end }}
+  {{- range .Values.metrics.podMonitor.extraMetricsEndpoints }}
+    - port: {{ .port }}
+      path: {{ .path }}
+    {{- if $.Values.metrics.podMonitor.interval }}
+      interval: {{ $.Values.metrics.podMonitor.interval }}
+    {{- end }}
+    {{- if $.Values.metrics.podMonitor.scrapeTimeout }}
+      scrapeTimeout: {{ $.Values.metrics.podMonitor.scrapeTimeout }}
+    {{- end }}
+  {{- end }}
+  namespaceSelector:
+    matchNames:
+      - {{ .Release.Namespace }}
+  selector:
+    matchLabels: {{- include "zeppelin.selectorLabels" . | nindent 6 }}
+{{- end }}

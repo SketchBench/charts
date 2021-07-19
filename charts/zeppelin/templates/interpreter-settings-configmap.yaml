@@ -206,6 +206,18 @@ data:
               "type":"checkbox",
               "description":"whether use yarn proxy url as spark weburl, e.g. http://localhost:8088/proxy/application_1583396598068_0004"
             },
+            "spark.ui.port":{
+              "name":"spark.ui.port",
+              "value":{{ .Values.sparkInterpreter.spark.webui.port | quote }},
+              "type":"number",
+              "description":"Port for your application's dashboard, which shows memory and workload data."
+            },
+            "spark.ui.prometheus.enabled":{
+              "name":"spark.ui.prometheus.enabled",
+              "value":{{ .Values.metrics.enabled | quote }},
+              "type":"string",
+              "description":"Export metrics of all executors at the driver."
+            },
             "zeppelin.spark.scala.color":{
               "name":"zeppelin.spark.scala.color",
               "value":{{ .Values.sparkInterpreter.zeppelin.spark.scala.color }},

@@ -61,7 +61,26 @@ dataIngestion:
     nodeSelector: {}
     tolerations: []
     affinity: {}
-
+  nexmark:
+    enabled: false
+    jar: /NEXMarkStream/NEXMarkStream-jar-with-dependencies.jar
+    javaOpts: -Xms1g
+    runClass: edu.illinois.sketchbench.datagen.JSONAuctionStreamGenerator
+    kafkaBootServers: kafka:9092
+    kafkaTopic: SketchBench-nexmark
+    threadSleep: 1
+    replicaCount: 1
+    image:
+      repository: sketchbench/sketchbench-data-ingestion-nexmark
+      pullPolicy: IfNotPresent
+      tag: "0.1.2"
+    podAnnotations: {}
+    podSecurityContext: {}
+    securityContext: {}
+    resources: {}
+    nodeSelector: {}
+    tolerations: []
+    affinity: {}
 kafka:
   zookeeper:
     nameOverride: kafka-zookeeper

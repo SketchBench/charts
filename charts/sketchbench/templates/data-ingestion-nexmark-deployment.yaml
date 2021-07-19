@@ -1,0 +1,69 @@
+{{- if .Values.dataIngestion.nexmark.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "sketchbench.fullname" . }}-data-ingestion-nexmark
+  labels:
+    {{- include "sketchbench.labels" . | nindent 4 }}
+    app.kubernetes.io/component: data-ingestion-nexmark
+spec:
+  replicas: {{ .Values.dataIngestion.nexmark.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/component: data-ingestion-nexmark
+      {{- include "sketchbench.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.dataIngestion.nexmark.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        app.kubernetes.io/component: data-ingestion-nexmark
+        {{- include "sketchbench.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.dataIngestion.nexmark.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        {{- toYaml .Values.dataIngestion.nexmark.podSecurityContext | nindent 8 }}
+      containers:
+        - name: data-ingestion-nexmark
+          securityContext:
+            {{- toYaml .Values.dataIngestion.nexmark.securityContext | nindent 12 }}
+          image: "{{ .Values.dataIngestion.nexmark.image.repository }}:{{ .Values.dataIngestion.nexmark.image.tag }}"
+          imagePullPolicy: {{ .Values.dataIngestion.nexmark.image.pullPolicy }}
+          env:
+          - name: JAVA_OPTS
+            value: {{ .Values.dataIngestion.nexmark.javaOpts | quote }}
+          - name: _JAVA_OPTS
+            value: {{ .Values.dataIngestion.nexmark.javaOpts | quote }}
+          - name: JVM_OPTS
+            value: {{ .Values.dataIngestion.nexmark.javaOpts | quote }}
+          command:
+            - java
+            - -cp
+            - {{ .Values.dataIngestion.nexmark.jar }}
+            - {{ .Values.dataIngestion.nexmark.runClass }}
+            - -kafkaBootServers
+            - {{ printf "%s-kafka:%g" .Release.Name .Values.dataIngestion.kafka.port | quote }}
+            - -topic
+            - {{ .Values.dataIngestion.nexmark.kafkaTopic }}
+            - -sleep
+            - {{ .Values.dataIngestion.nexmark.threadSleep | quote }}
+          resources:
+            {{- toYaml .Values.dataIngestion.nexmark.resources | nindent 12 }}
+      {{- with .Values.dataIngestion.nexmark.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.dataIngestion.nexmark.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.dataIngestion.nexmark.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+{{- end }}

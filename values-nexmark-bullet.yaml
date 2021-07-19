@@ -19,11 +19,8 @@ zeppelin:
         deployMode: "client"
       app:
         name: "zeppelin"
-<<<<<<< HEAD
       jar:
         packages: org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.2,org.apache.spark:spark-streaming-kafka-0-10-assembly_2.12:3.0.2
-=======
->>>>>>> 79a3238bc45045f5d5a407c035e18d542c9fd0db
 
 spark:
   enabled: true

@@ -73,7 +73,7 @@ dataIngestion:
     image:
       repository: sketchbench/sketchbench-data-ingestion-nexmark
       pullPolicy: IfNotPresent
-      tag: "0.1.0"
+      tag: "0.1.2"
     podAnnotations: {}
     podSecurityContext: {}
     securityContext: {}

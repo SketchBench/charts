@@ -7,6 +7,73 @@ entries:
         url: https://keybase.io/frable90/pgp_keys.asc
     apiVersion: v2
     appVersion: 1.0.0
+    created: "2021-07-22T07:00:41.000383983Z"
+    dependencies:
+    - condition: bullet.enabled
+      name: bullet
+      repository: https://sketchbench.github.io/bullet-k8s
+      version: 0.3.2
+    - import-values:
+      - child: service
+        parent: dataIngestion.kafka
+      - child: zookeeper.service
+        parent: dataIngestion.zookeeper
+      name: kafka
+      repository: https://charts.bitnami.com/bitnami
+      version: 13.0.3
+    - condition: kafdrop.enabled
+      name: kafdrop
+      repository: https://bedag.github.io/helm-charts
+      version: 0.2.3
+    - condition: spark.enabled
+      import-values:
+      - child: master
+        parent: bullet.sparkBackend.cluster
+      name: spark
+      repository: https://charts.bitnami.com/bitnami
+      version: 5.6.2
+    - condition: tobs.enabled
+      name: tobs
+      repository: https://charts.timescale.com
+      version: 0.5.0
+    - condition: zeppelin.enabled
+      name: zeppelin
+      repository: https://sketchbench.github.io/charts
+      version: 0.1.3
+    description: A benchmark suite for stochastic streaming algorithms
+    digest: 8a543dbd2b3e18a9772a15b391ec7aa08d3ef6ab1d53b9907e4b289f6f024e82
+    home: https://spark.apache.org/
+    keywords:
+    - apache
+    - bullet
+    - spark
+    - storm
+    - kafka
+    - sketch
+    - benchmark
+    maintainers:
+    - email: frankb2@illinois.edu
+      name: FraBle
+      url: https://github.com/FraBle
+    - email: hmakam2@illinois.edu
+      name: makamhareesh
+      url: https://github.com/makamhareesh
+    - email: mkp5@illinois.edu
+      name: mukrpe
+      url: https://github.com/mukrpe
+    name: sketchbench
+    sources:
+    - https://github.com/SketchBench/charts
+    type: application
+    urls:
+    - https://github.com/SketchBench/charts/releases/download/sketchbench-0.2.1/sketchbench-0.2.1.tgz
+    version: 0.2.1
+  - annotations:
+      artifacthub.io/signKey: |
+        fingerprint: F6F77B76587337D518F42D9CE720A2903AF94931
+        url: https://keybase.io/frable90/pgp_keys.asc
+    apiVersion: v2
+    appVersion: 1.0.0
     created: "2021-07-19T05:03:05.785327315Z"
     dependencies:
     - condition: bullet.enabled
@@ -444,4 +511,4 @@ entries:
     urls:
     - https://github.com/SketchBench/charts/releases/download/zeppelin-0.1.0/zeppelin-0.1.0.tgz
     version: 0.1.0
-generated: "2021-07-19T05:03:05.785370416Z"
+generated: "2021-07-22T07:00:41.000427183Z"

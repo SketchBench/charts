@@ -2,7 +2,7 @@ apiVersion: v2
 name: sketchbench
 description: A benchmark suite for stochastic streaming algorithms
 type: application
-version: 0.2.0
+version: 0.2.1
 appVersion: "1.0.0"
 home: https://spark.apache.org/
 # icon:
@@ -32,7 +32,7 @@ keywords:
   - benchmark
 dependencies:
   - name: bullet
-    version: 0.3.1
+    version: 0.3.2
     repository: https://sketchbench.github.io/bullet-k8s
     condition: bullet.enabled
   - name: kafka

@@ -456,6 +456,38 @@ entries:
         url: https://keybase.io/frable90/pgp_keys.asc
     apiVersion: v2
     appVersion: 0.9.0
+    created: "2021-07-29T05:06:34.533217152Z"
+    description: Apache Zeppelin Helm chart for custom integration with Apache Spark
+    digest: fde01d26b529b8ef59b6286df07e3554ba46d1646fb3872d7bebc4a49b4215e8
+    home: http://zeppelin.apache.org/
+    keywords:
+    - apache
+    - zeppelin
+    - notebook
+    - spark
+    maintainers:
+    - email: frankb2@illinois.edu
+      name: FraBle
+      url: https://github.com/FraBle
+    - email: hmakam2@illinois.edu
+      name: makamhareesh
+      url: https://github.com/makamhareesh
+    - email: mkp5@illinois.edu
+      name: mukrpe
+      url: https://github.com/mukrpe
+    name: zeppelin
+    sources:
+    - https://github.com/SketchBench/charts
+    type: application
+    urls:
+    - https://github.com/SketchBench/charts/releases/download/zeppelin-0.1.4/zeppelin-0.1.4.tgz
+    version: 0.1.4
+  - annotations:
+      artifacthub.io/signKey: |
+        fingerprint: F6F77B76587337D518F42D9CE720A2903AF94931
+        url: https://keybase.io/frable90/pgp_keys.asc
+    apiVersion: v2
+    appVersion: 0.9.0
     created: "2021-07-19T04:48:55.222820044Z"
     description: Apache Zeppelin Helm chart for custom integration with Apache Spark
     digest: 303691467f89ac714a7b8ed75b3bff2b7b00efa98c2b4b29e0287864a10f7d43
@@ -578,4 +610,4 @@ entries:
     urls:
     - https://github.com/SketchBench/charts/releases/download/zeppelin-0.1.0/zeppelin-0.1.0.tgz
     version: 0.1.0
-generated: "2021-07-22T07:43:50.240704297Z"
+generated: "2021-07-29T05:06:34.533269753Z"

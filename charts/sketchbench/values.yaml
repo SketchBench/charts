@@ -81,6 +81,7 @@ dataIngestion:
     nodeSelector: {}
     tolerations: []
     affinity: {}
+
 kafka:
   zookeeper:
     nameOverride: kafka-zookeeper
@@ -116,6 +117,13 @@ spark:
   worker:
     replicaCount: 3
     coreLimit: 3
+
+hdfs:
+  enabled: false
+  config:
+    hdfsSite:
+      # https://github.com/gchq/gaffer-docker/pull/152
+      dfs.namenode.datanode.registration.ip-hostname-check: false
 
 tobs:
   enabled: false

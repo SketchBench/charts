@@ -11,11 +11,14 @@ dependencies:
 - name: spark
   repository: https://charts.bitnami.com/bitnami
   version: 5.7.0
+- name: hdfs
+  repository: https://gchq.github.io/gaffer-docker
+  version: 0.13.0
 - name: tobs
   repository: https://charts.timescale.com
   version: 0.6.0
 - name: zeppelin
   repository: https://sketchbench.github.io/charts
   version: 0.1.4
-digest: sha256:2440967c598bbeb3546ec725c87a0241abb990683c1b560b91e0754cdada8c08
-generated: "2021-07-29T00:20:26.2280347-07:00"
+digest: sha256:78d0ea0e5d7693108575d8198493813107a0f55bbef72fbe126c31b2999568f3
+generated: "2021-07-30T22:18:33.9694893-07:00"

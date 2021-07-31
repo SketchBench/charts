@@ -2,7 +2,7 @@ apiVersion: v2
 name: sketchbench
 description: A benchmark suite for stochastic streaming algorithms
 type: application
-version: 0.2.3
+version: 0.2.4
 appVersion: "1.0.0"
 home: https://spark.apache.org/
 # icon:
@@ -54,6 +54,13 @@ dependencies:
     import-values:
       - child: master
         parent: bullet.sparkBackend.cluster
+  - name: hdfs
+    version: 0.13.0
+    repository: https://gchq.github.io/gaffer-docker
+    condition: hdfs.enabled
+    import-values:
+      - child: namenode
+        parent: bullet.sparkBackend.hdfs
   - name: tobs
     version: 0.6.0
     repository: https://charts.timescale.com

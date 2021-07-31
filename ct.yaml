@@ -8,6 +8,7 @@ chart-repos:
   - gradiant=https://gradiant.github.io/charts
   - timescale=https://charts.timescale.com
   - slamdev=https://slamdev.github.io/helm-charts
+  - gaffer=https://gchq.github.io/gaffer-docker
   - bullet=https://sketchbench.github.io/bullet-k8s
   - sketchbench=https://sketchbench.github.io/charts
 helm-extra-args: --timeout 600s

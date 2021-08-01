@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "graphiteExporter.fullname" . }}
+  labels:
+    {{- include "graphiteExporter.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "graphiteExporter.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "graphiteExporter.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          args:
+            - --graphite.mapping-config
+            - /opt/graphite-exporter/conf/graphite_mapping.conf
+          ports:
+            - name: prometheus
+              containerPort: 9108
+              protocol: TCP
+            - name: graphite
+              containerPort: 9109
+              protocol: TCP
+            - name: graphite-udp
+              containerPort: 9109
+              protocol: UDP
+          livenessProbe:
+            httpGet:
+              path: /metrics
+              port: prometheus
+          readinessProbe:
+            httpGet:
+              path: /metrics
+              port: prometheus
+          volumeMounts:
+            - name: graphite-exporter-config
+              mountPath: /opt/graphite-exporter/conf
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      volumes:
+        - name: graphite-exporter-config
+          configMap:
+            name: {{ include "graphiteExporter.fullname" . }}
+            items:
+            - key: graphite_mapping.conf
+              path: graphite_mapping.conf

@@ -1,0 +1,29 @@
+replicaCount: 1
+image:
+  repository: prom/graphite-exporter
+  pullPolicy: IfNotPresent
+  tag: v0.10.1
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+podSecurityContext: {}
+securityContext: {}
+resources: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+service:
+  type: ClusterIP
+  className: ""
+  tls: []
+
+podMonitor:
+  enabled: false
+  extraMetricsEndpoints: []
+  namespace: ""
+  interval: 30s
+  scrapeTimeout:

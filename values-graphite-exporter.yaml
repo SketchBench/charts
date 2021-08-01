@@ -1,0 +1,5 @@
+podMonitor:
+  enabled: true
+  interval: 10s
+nodeSelector:
+  sketchbench/pool: observability

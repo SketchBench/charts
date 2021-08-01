@@ -1,0 +1,55 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: {{ include "graphiteExporter.fullname" . }}
+data:
+  graphite_mapping.conf: |-
+    mappings:
+    - match: '*.*.jvm.*.*'
+      name: spark_jvm_memory_usage
+      labels:
+        application_id: $1
+        executor_id: $2
+        mem_type: $3
+        qty: $4
+
+    - match: '*.*.jvm.pools.*.*'
+      name: spark_jvm_memory_pools
+      labels:
+        application_id: $1
+        executor_id: $2
+        mem_type: $3
+        qty: $4
+
+    - match: '*.*.BlockManager.*.*'
+      name: spark_block_manager
+      labels:
+        application_id: $1
+        executor_id: $2
+        type: $3
+        qty: $4
+
+    - match: '*.*.DAGScheduler.*.*'
+      name: spark_dag_scheduler
+      labels:
+        application_id: $1
+        executor_id: $2
+        type: $3
+        qty: $4
+
+    - match: '*.*.appStatus.*.*.*'
+      name: spark_app_status
+      labels:
+        application_id: $1
+        executor_id: $2
+        type: $3
+        qty: $4
+
+    - match: '*.*.*.StreamingMetrics.*.*'
+      name: spark_streaming_app
+      labels:
+        application_id: $1
+        executor_id: $2
+        application: $3
+        type: $4
+        qty: $5

@@ -1,5 +1,39 @@
 apiVersion: v1
 entries:
+  graphite-exporter:
+  - annotations:
+      artifacthub.io/signKey: |
+        fingerprint: F6F77B76587337D518F42D9CE720A2903AF94931
+        url: https://keybase.io/frable90/pgp_keys.asc
+    apiVersion: v2
+    appVersion: 0.10.1
+    created: "2021-08-01T04:49:28.960836118Z"
+    description: A Prometheus exporter for metrics exported in the Graphite plaintext
+      protocol
+    digest: c37692f0288edc1233186a8f02a863eb38b4f35c52df781be3cc8d51dde33f15
+    home: https://github.com/prometheus/graphite_exporter
+    keywords:
+    - apache
+    - prometheus
+    - exoprter
+    - graphite
+    maintainers:
+    - email: frankb2@illinois.edu
+      name: FraBle
+      url: https://github.com/FraBle
+    - email: hmakam2@illinois.edu
+      name: makamhareesh
+      url: https://github.com/makamhareesh
+    - email: mkp5@illinois.edu
+      name: mukrpe
+      url: https://github.com/mukrpe
+    name: graphite-exporter
+    sources:
+    - https://github.com/SketchBench/charts
+    type: application
+    urls:
+    - https://github.com/SketchBench/charts/releases/download/graphite-exporter-0.1.0/graphite-exporter-0.1.0.tgz
+    version: 0.1.0
   sketchbench:
   - annotations:
       artifacthub.io/signKey: |
@@ -751,4 +785,4 @@ entries:
     urls:
     - https://github.com/SketchBench/charts/releases/download/zeppelin-0.1.0/zeppelin-0.1.0.tgz
     version: 0.1.0
-generated: "2021-07-31T05:36:36.431547746Z"
+generated: "2021-08-01T04:49:28.960865421Z"

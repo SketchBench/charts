@@ -19,9 +19,9 @@ dependencies:
   version: 0.6.0
 - name: zeppelin
   repository: https://sketchbench.github.io/charts
-  version: 0.1.4
+  version: 0.1.5
 - name: graphite-exporter
   repository: https://sketchbench.github.io/charts
   version: 0.1.0
-digest: sha256:842acc49b63c2a02613833c579412391dfaf1c91df0936f626a48650c7f82ec3
-generated: "2021-07-31T23:57:36.2356964-07:00"
+digest: sha256:89e8734923b232d6ac04c4d151e8de21ceda8c631046b05c289341336db5ceee
+generated: "2021-08-01T00:58:38.3397322-07:00"

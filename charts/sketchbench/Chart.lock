@@ -1,7 +1,7 @@
 dependencies:
 - name: bullet
   repository: https://sketchbench.github.io/bullet-k8s
-  version: 0.4.0
+  version: 0.4.1
 - name: kafka
   repository: https://charts.bitnami.com/bitnami
   version: 13.1.1
@@ -20,5 +20,8 @@ dependencies:
 - name: zeppelin
   repository: https://sketchbench.github.io/charts
   version: 0.1.4
-digest: sha256:78d0ea0e5d7693108575d8198493813107a0f55bbef72fbe126c31b2999568f3
-generated: "2021-07-30T22:18:33.9694893-07:00"
+- name: graphite-exporter
+  repository: https://sketchbench.github.io/charts
+  version: 0.1.0
+digest: sha256:73c7a7f302b8cf869631850abf6d2f0d5de20a4a5962f3594c16089d1a50ca2f
+generated: "2021-07-31T23:32:43.3992261-07:00"

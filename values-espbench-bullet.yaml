@@ -30,11 +30,21 @@ spark:
     replicaCount: 3
     coreLimit: 3
 
+hdfs:
+  enabled: true
+
 bullet:
   enabled: true
   spark:
     enabled: false
   sparkBackend:
+    metrics:
+      enabled: true
+      graphiteExporter:
+        enabled: true
+        host: graphite-exporter
+        port: 9108
+        periodSeconds: 10
     image:
       repository: sketchbench/bullet-spark-3.0
     config:
@@ -124,3 +134,9 @@ bullet:
             }
           ]
         }
+
+graphite-exporter:
+  enabled: true
+  podMonitor:
+    enabled: true
+    interval: 10s

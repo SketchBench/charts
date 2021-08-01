@@ -109,3 +109,6 @@ metrics:
     namespace: ""
     interval: 30s
     scrapeTimeout:
+  graphiteExporter:
+    enabled: false
+    periodSeconds: 30

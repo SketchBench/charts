@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "zeppelin.fullname" . }}-metrics-config
+  labels:
+    {{- include "zeppelin.labels" . | nindent 4 }}
+data:
+  metrics.properties: |-
+    # Example configuration for PrometheusServlet
+    *.sink.prometheusServlet.class=org.apache.spark.metrics.sink.PrometheusServlet
+    *.sink.prometheusServlet.path=/metrics/prometheus
+    master.sink.prometheusServlet.path=/metrics/master/prometheus
+    applications.sink.prometheusServlet.path=/metrics/applications/prometheus
+    {{- if and .Values.metrics.enabled .Values.metrics.graphiteExporter.enabled }}
+    # Example configuration for Graphite sink
+    *.sink.graphite.class=org.apache.spark.metrics.sink.GraphiteSink
+    *.sink.graphite.host={{ printf "%s-%s" .Release.Name .Values.metrics.graphiteExporter.host}}
+    *.sink.graphite.port={{ .Values.metrics.graphiteExporter.port }}
+    *.sink.graphite.period={{ .Values.metrics.graphiteExporter.periodSeconds }}
+    *.sink.graphite.unit=seconds
+    #*.sink.graphite.prefix=<optional_value>
+    # Enable JvmSource
+    master.source.jvm.class=org.apache.spark.metrics.source.JvmSource
+    worker.source.jvm.class=org.apache.spark.metrics.source.JvmSource
+    driver.source.jvm.class=org.apache.spark.metrics.source.JvmSource
+    executor.source.jvm.class=org.apache.spark.metrics.source.JvmSource
+    {{- end }}

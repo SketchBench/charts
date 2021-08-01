@@ -88,6 +88,11 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /opt/zeppelin/conf
+            {{- if .Values.metrics.enabled }}
+            - name: metrics-config
+              mountPath: /opt/spark/conf/metrics.properties
+              subPath: metrics.properties
+            {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
@@ -121,5 +126,13 @@ spec:
             items:
             - key: interpreter.json
               path: interpreter.json
+        {{- if .Values.metrics.enabled }}
+        - name: metrics-config
+          configMap:
+            name: {{ include "zeppelin.fullname" . }}-metrics-config
+            items:
+            - key: metrics.properties
+              path: metrics.properties
+        {{- end }}
         - name: config
           emptyDir: {}
